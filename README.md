@@ -29,3 +29,54 @@ can use postman.):
 $ curl -X POST http://127.0.0.1:8000/auth/token/login/ --data 'username=kk23&password=123123123'
 {"auth_token":"1403663acd1f84929d10fe98ca69ca88e83de84d"}
 ```
+
+```sh
+$ curl -LX GET http://127.0.0.1:8000/api/quiz/ -H 'Authorization: Token 1403663acd1f84929d10fe98ca69ca88e83de84d'
+```
+
+## Get/Add/Change/Delete Quiz
+
+```
+Get: api/quiz/ return {
+    "id": 11,
+    "question": [
+        7
+    ],
+    "name": "О себе",
+    "date_start": "2021-02-26T15:02:57.664934Z",
+    "date_finish": null,
+    "desc": "Опрос о себе"
+}
+
+Add: api/quiz/create with data - name, desc, return serialized new obj
+
+Change: api/quiz/update/<int:pk>/ with data - name, desc, return serialized update obj
+
+Delete: api/quiz/delete/<int:pk>/ return 204
+```
+
+
+## Get/Add/Change/Delete Question
+
+```
+Get: api/question/ return {
+    "text": "\"Ваши качества?\"",
+    "type": "ManyQ",
+    "quiz": 11,
+    "choice_answer": [
+        26,
+        27,
+        28
+    ],
+    "answer": [
+        7,
+        8
+    ]
+}
+
+Add: api/question/create with data - quiz, text, type, answers(optional, sep ",") return serialized create obj
+
+Change: api/question/update/<int:pk>/ with data - quiz, text, type, answers(optional, sep ",") return serialized update obj
+
+Delete: api/question/delete/<int:pk>/ return 204
+```
