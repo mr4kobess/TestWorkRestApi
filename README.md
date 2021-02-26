@@ -80,3 +80,64 @@ Change: api/question/update/<int:pk>/ with data - quiz, text, type, answers(opti
 
 Delete: api/question/delete/<int:pk>/ return 204
 ```
+
+## Get user Quiz
+
+```
+get request answer/get/<int:id>/ return {
+    "answers": [
+        {
+            "id": 7,
+            "choice": "Норм",
+            "text": null,
+            "question": 7,
+            "user": [
+                1
+            ]
+        },
+        {
+            "id": 8,
+            "choice": " нет",
+            "text": null,
+            "question": 7,
+            "user": [
+                1
+            ]
+        },
+        {
+            "id": 9,
+            "choice": " нет",
+            "text": null,
+            "question": 7,
+            "user": [
+                1
+            ]
+        }
+    ],
+    "quiz": [
+        {
+            "id": 11,
+            "question": [
+                7
+            ],
+            "name": "О себе",
+            "date_start": "2021-02-26T15:02:57.664934Z",
+            "desc": "Опрос о себе"
+        }
+    ]
+}
+```
+
+## Create answer
+
+```
+post reauest answer/create/ return {
+    "id": 9,
+    "text": null,
+    "question": 7,
+    "choice": 27,
+    "user": [
+        1
+    ]
+}
+```
